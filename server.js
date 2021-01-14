@@ -20,8 +20,8 @@ io.on('connection', (socket) => {
    * @param success {bool}
    * @param message {string}
    */
-  const sendStatus = function({success, message}){
-    socket.emit('status', {success, message});
+  const sendStatus = function(){
+    socket.emit('status');
   }
 
   socket.on('transmit', () => {
