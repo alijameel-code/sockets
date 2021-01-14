@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
   	  console.log(data);
       const input = data;
       sendStatus();
-
+	})
   socket.on('disconnect', () => console.log('Client disconnected'));
 
 });
