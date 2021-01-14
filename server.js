@@ -46,21 +46,13 @@ io.on('connection', (socket) => {
   });
 
   socket.on('input', (data) => {
-    const name = data.name;
-    const message = data.message;
-
-    if (!name || !message) {
-      sendStatus({
-        success: false,
-        message: 'Please enter a name and message'
-      });
-    } else {
-      socket.emit('output', data);
+      const input = data;
+      console.log(input);
       sendStatus({
         success: true,
-        message: 'Message updating...'
+        message: 'Recieved the input ' + input
       });
-    }
+    } 
   })
 
   socket.on('disconnect', () => console.log('Client disconnected'));
