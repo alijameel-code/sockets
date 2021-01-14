@@ -11,6 +11,7 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 const io = socketIO(server);
+var connectedUsers = [];
 
 io.on('connection', (socket) => {
   console.log('Client connected');
@@ -22,7 +23,7 @@ io.on('connection', (socket) => {
    */
   const sendStatus = function(){
     console.log('emitting');
-    socket.emit('status');
+    socket.emit('status', ({users: connectedUsers}));
   }
 
   socket.on('transmit', () => {
@@ -48,11 +49,7 @@ io.on('connection', (socket) => {
   socket.on('input', (data) => {
   	  console.log(data);
       const input = data;
-      sendStatus({
-        success: true,
-        message: 'Recieved the input ' + input
-      });
-    })
+      sendStatus();
 
   socket.on('disconnect', () => console.log('Client disconnected'));
 
