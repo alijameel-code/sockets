@@ -52,8 +52,7 @@ io.on('connection', (socket) => {
         success: true,
         message: 'Recieved the input ' + input
       });
-    } 
-  })
+    })
 
   socket.on('disconnect', () => console.log('Client disconnected'));
 
