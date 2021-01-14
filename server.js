@@ -46,8 +46,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('input', (data) => {
+  	  console.log(data);
       const input = data;
-      console.log(input);
       sendStatus({
         success: true,
         message: 'Recieved the input ' + input
