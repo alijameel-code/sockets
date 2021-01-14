@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
    */
   const sendStatus = function(){
     console.log('emitting');
-    socket.emit('status', ({users: connectedUsers}));
+    socket.broadcast.emit('status', ({users: connectedUsers}));
   }
 
   socket.on('transmit', () => {
