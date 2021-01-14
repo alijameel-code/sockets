@@ -21,6 +21,7 @@ io.on('connection', (socket) => {
    * @param message {string}
    */
   const sendStatus = function(){
+    console.log('emitting');
     socket.emit('status');
   }
 
