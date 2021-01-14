@@ -49,6 +49,7 @@ io.on('connection', (socket) => {
   socket.on('input', (data) => {
   	  console.log(data);
       const input = data;
+	  connectedUsers.push(data.data);
       sendStatus();
 	})
   socket.on('disconnect', () => console.log('Client disconnected'));
