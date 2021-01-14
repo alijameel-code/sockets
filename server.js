@@ -15,7 +15,7 @@ var connectedUsers = [];
 
 io.on('connection', (socket) => {
   console.log('Client connected');
-
+  console.log(socket);
   /**
    * Create function to send status
    * @param success {bool}
